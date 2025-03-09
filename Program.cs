@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace tpmodul4_103022300092
 {
@@ -18,6 +19,33 @@ namespace tpmodul4_103022300092
             Console.WriteLine("Kebonwaru    " + KodePos.getKodePos(KodePos.Kelurahan.Kebonwaru));
             Console.WriteLine("Maleer       " + KodePos.getKodePos(KodePos.Kelurahan.Maleer));
             Console.WriteLine("Samoja       " + KodePos.getKodePos(KodePos.Kelurahan.Samoja));
+
+            DoorMachine dor = new DoorMachine();
+            while (true)
+            {
+                Console.WriteLine("buka/kunci/keluar");
+                string inputan = Console.ReadLine().ToLower();
+
+                if (inputan == "buka")
+                {
+                    dor.ActivateTrigger(Trigger.BukaPintu);
+                }
+                else if (inputan == "kunci")
+                {
+                    dor.ActivateTrigger(Trigger.KunciPintu);
+                }
+                else if (inputan == "keluar")
+                {
+                    Console.WriteLine("Anda telah keluar dari program");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Perintah tidak valid");
+                }
+            }
+
         }
+
     }
 }
